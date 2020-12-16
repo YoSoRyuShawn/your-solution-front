@@ -6,3 +6,10 @@ export const getAlldoctors = async () => {
   ).data;
   return data;
 };
+
+export const invokeZoom = async () => {
+  const res = await axios.post("https://your-solution-stg.herokuapp.com/zoomMeeting");
+  if(res.status === 200) {
+    return res.data.body.join_url;
+  }
+}
