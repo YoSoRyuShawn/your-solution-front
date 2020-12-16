@@ -1,8 +1,23 @@
 import styles from "../styles/Filter.module.css";
-export default function FIlter() {
+export default function FIlter(props) {
+  const specialtyFilter = (e) => {
+    const specialty = e.target.value;
+    let filterdDoctors = props.allDoctors;
+    if(specialty !== "All") {
+      filterdDoctors = filterdDoctors.filter((doctor) => {
+        return doctor.specialty === specialty;
+      })
+    }
+    props.setDoctors(filterdDoctors);
+  }
   return (
     <div className={styles.filter}>
-      <select name="specialty" size="1" className={styles.selectbox}>
+      <select 
+        name="specialty" 
+        size="1" 
+        className={styles.selectbox}
+        onChange={specialtyFilter}
+      >
         <option value="All" selected>All</option>
         <option value="General Physician">General Physician</option>
         <option value="Surgeon">Surgeon</option>
@@ -22,7 +37,7 @@ export default function FIlter() {
         <option value="Wednesday">Wednesday</option>
         <option value="Thursday">Thursday</option>
         <option value="Friday">Friday</option>
-        <option value="Saturday"></option>
+        <option value="Saturday">Saturday</option>
       </select>
     </div>
   );
