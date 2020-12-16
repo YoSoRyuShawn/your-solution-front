@@ -9,7 +9,6 @@ import { getAlldoctors } from "../utils/data";
 export async function getServerSideProps() {
   console.log("fetching");
   const data = await getAlldoctors();
-  console.log(data);
   return {
     props: { data },
   };
@@ -17,7 +16,7 @@ export async function getServerSideProps() {
 
 export default function Home({ data }) {
   const [doctors, setDocters] = useState(data);
-
+  const [changeView, setChangeView] = useState(true);
   return (
     <div className={styles.container}>
       <Head>
@@ -28,6 +27,7 @@ export default function Home({ data }) {
         <Title />
         <Filter />
         <DoctorsList doctors={doctors} setDocters={setDocters} />
+        {/* {changeView? (<DoctorsList doctors={doctors} setDocters={setDocters} />) : } */}
       </main>
       <footer className={styles.footer}>
         <a
