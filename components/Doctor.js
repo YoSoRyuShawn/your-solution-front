@@ -8,11 +8,13 @@ export default function Doctor(props) {
       <div className={styles.doctorspecialty}>
         Specialties:{props.doctor.specialty}
       </div>
-      <div className={styles.doctorprice}>{props.doctor.price}Yen/session</div>
+      <div className={styles.doctorprice}>{props.doctor.price} Yen/session</div>
       <button
         className={styles.button}
         onClick={() => {
-          //change state to single doctor
+          //doctorsの配列から選ばれたdoctorの情報をindexを使って取り出す
+          props.setIndex(props.doctor.id - 1);
+          props.setChangeView(false);
         }}
       >
         See more
