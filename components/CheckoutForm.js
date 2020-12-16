@@ -4,6 +4,8 @@ import { Button, Form, FormGroup, Label, Input, FormFeedback } from 'reactstrap'
 import { Formik } from 'formik'
 import * as Yup from 'yup';
 import axios from "axios";
+import Router from 'next/router';
+import Title from "../components/Title";
 
 class CheckoutForm extends React.Component {
 
@@ -38,15 +40,31 @@ class CheckoutForm extends React.Component {
                 }
             }
         });
-
-        if (confirmRes.paymentIntent.status === "succeeded") {
+        if (confirmRes.paymentIntent && confirmRes.paymentIntent.status === "succeeded") {
             alert("決済完了");
+            Router.push({
+              pathname:"/checkout/success",
+              query:{
+                name: values.username
+              }
+            });
+            return;
+        } else {
+          Router.push({
+            pathname:"/checkout/fail",
+            query:{
+              name: values.username
+            }
+          });
+          return;
         }
     }
 
     render() {
         console.log(this.props.stripe);
         return (
+            <>
+            <Title />
             <div className="col-8">
                 <p>決済情報の入力</p>
                 <Formik
@@ -119,6 +137,7 @@ class CheckoutForm extends React.Component {
                 </Formik>
 
             </div>
+            </>
         );
     }
 }
