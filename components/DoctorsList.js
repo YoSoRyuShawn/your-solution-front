@@ -5,7 +5,14 @@ export default function DoctorsList(props) {
   const doctors = props.doctors;
   const list = [];
   for (const doctor of doctors) {
-    list.push(<Doctor doctor={doctor} key={doctor.id} />);
+    list.push(
+      <Doctor
+        doctor={doctor}
+        key={doctor.id}
+        setChangeView={props.setChangeView}
+        setIndex={props.setIndex}
+      />
+    );
   }
   return <div className={styles.doctorslist}>{list}</div>;
 }

@@ -2,6 +2,7 @@ import Head from "next/head";
 import Title from "../components/Title";
 import Filter from "../components/Filter";
 import DoctorsList from "../components/DoctorsList";
+import Detail from "../components/Detail";
 import styles from "../styles/Home.module.css";
 import { useState } from "react";
 import { getAlldoctors } from "../utils/data";
@@ -17,6 +18,7 @@ export async function getServerSideProps() {
 export default function Home({ data }) {
   const [doctors, setDocters] = useState(data);
   const [changeView, setChangeView] = useState(true);
+  const [doctorIndex, setIndex] = useState(null);
   return (
     <div className={styles.container}>
       <Head>
@@ -25,9 +27,24 @@ export default function Home({ data }) {
       </Head>
       <main className={styles.main}>
         <Title />
-        <Filter />
-        <DoctorsList doctors={doctors} setDocters={setDocters} />
-        {/* {changeView? (<DoctorsList doctors={doctors} setDocters={setDocters} />) : } */}
+
+        {changeView ? (
+          <>
+            <Filter />
+            <DoctorsList
+              doctors={doctors}
+              setDocters={setDocters}
+              setChangeView={setChangeView}
+              setIndex={setIndex}
+            />
+          </>
+        ) : (
+          <Detail
+            doctor={doctors[doctorIndex]}
+            setChangeView={setChangeView}
+            setIndex={setIndex}
+          />
+        )}
       </main>
       <footer className={styles.footer}>
         <a
