@@ -22,11 +22,11 @@ export default function Home({ data }) {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Create Next App</title>
+        <title>Hey, Doc!</title>
         <link rel="icon" href="/favicon-heart.ico" />
       </Head>
       <main className={styles.main}>
-        <Title />
+        <Title doctors={data} setDoctors={setDocters} setChangeView={setChangeView}/>
 
         {changeView ? (
           <>

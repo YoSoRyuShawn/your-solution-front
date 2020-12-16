@@ -1,8 +1,22 @@
 import styles from "../styles/Title.module.css";
-export default function Title() {
+import Router from "next/router";
+export default function Title(props) {
+  const titleClick = () => {
+    if(props.doctors) {
+      props.setDoctors(props.doctors)
+      props.setChangeView(true);
+      return;
+    } else {
+      Router.push("/");
+      return;
+    }
+  }
   return(
     <div className={styles.title}>
-      <img src="/logo.png"></img>
+      <img 
+        src="/logo.png"
+        onClick={titleClick}
+      ></img>
     </div>
   );
 }

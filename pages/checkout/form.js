@@ -18,8 +18,8 @@ export default function Home() {
   return (
     <div>
       <Head>
-          <title>Create Next App</title>
-          <link rel="icon" href="/favicon.ico" />
+        <title>Hey, Doc!</title>
+        <link rel="icon" href="/favicon-heart.ico" />
           <script src="https://js.stripe.com/v3/"></script>
       </Head>
       <Title />

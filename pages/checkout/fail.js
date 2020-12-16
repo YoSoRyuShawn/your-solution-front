@@ -10,8 +10,8 @@ export default function Home(props) {
   return (
     <div>
       <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>Hey, Doc!</title>
+        <link rel="icon" href="/favicon-heart.ico" />
       </Head>
       <Title />
       <div className="container">
