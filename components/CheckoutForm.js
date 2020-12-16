@@ -7,6 +7,7 @@ import axios from "axios";
 import Router from 'next/router';
 import styles from "../styles/CheckoutForm.module.css";
 import { useRouter } from "next/router";
+import { invokeZoom, sendEmail } from "../utils/data";
 
 const CheckoutForm = (props) => {
   const router = useRouter();
@@ -48,10 +49,23 @@ class CheckoutFormClass extends React.Component {
         });
         if (confirmRes.paymentIntent && confirmRes.paymentIntent.status === "succeeded") {
             alert("決済完了");
+            const url = await invokeZoom();
+            // const body = {
+            //     firsName: values.username.split(" ")[0],
+            //     lastName: values.username.split(" ")[1],
+            //     time: "0:00 Monday",
+            //     url: url,
+            //     email: values.email
+            // };
+            // const res = await sendEmail(body);
+            // if(!res) {
+            //     alert("Can not send an email");
+            // }
             Router.push({
               pathname:"/checkout/success",
               query:{
-                name: values.username
+                name: values.username,
+                url: url
               }
             });
             return;
@@ -73,7 +87,7 @@ class CheckoutFormClass extends React.Component {
             <div className="col-8">
                 <p>決済情報の入力</p>
                 <Formik
-                    initialValues={{ amount: this.props.router.query.amount, username: 'TARO YAMADA' }}
+                    initialValues={{ amount: this.props.router.query.amount, username: 'TARO YAMADA', email:""}}
                     onSubmit={(values) => this.handlePayment(values)}
                     validationSchema={Yup.object().shape({
                         amount: Yup.number().min(1).max(100000),
@@ -109,6 +123,20 @@ class CheckoutFormClass extends React.Component {
                                     <FormFeedback>
                                         {errors.username}
                                     </FormFeedback>
+                                </FormGroup>
+                                <FormGroup>
+                                    <Label>E-mail</Label>
+                                    <Input
+                                        type="email"
+                                        name="email"
+                                        value={values.email}
+                                        onChange={handleChange}
+                                        onBlur={handleBlur}
+                                        invalid={Boolean(touched.email && errors.email)}
+                                    />
+                                    <FormGroup>
+                                        {errors.email}
+                                    </FormGroup>
                                 </FormGroup>
                                 {/* <CardElement
                                     className="bg-light p-3"
