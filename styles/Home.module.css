@@ -5,9 +5,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100vw;
 }
 
 .main {
+  width: 100vw;
   padding: 5rem 0;
   flex: 1;
   display: flex;
@@ -111,7 +113,7 @@
 }
 
 .logo {
-  height: 1em;
+  height: 200px;
 }
 
 @media (max-width: 600px) {
