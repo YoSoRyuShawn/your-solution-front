@@ -76,7 +76,7 @@ class CheckoutFormClass extends React.Component {
                     initialValues={{ amount: this.props.router.query.amount, username: 'TARO YAMADA' }}
                     onSubmit={(values) => this.handlePayment(values)}
                     validationSchema={Yup.object().shape({
-                        amount: Yup.number().min(1).max(1000),
+                        amount: Yup.number().min(1).max(100000),
                     })}
                 >
                     {
