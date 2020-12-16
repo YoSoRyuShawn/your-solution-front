@@ -1,7 +1,6 @@
 import styles from "../styles/Detail.module.css";
 import _ from "underscore";
 import Router from "next/router";
-
 export default function Detail(props) {
   let timeTags = [];
   for (const day in props.doctor.availability) {
@@ -11,9 +10,16 @@ export default function Detail(props) {
         ? (t = `${t.toString().substr(0, 1)}:${t.toString().substr(1, 2)}`)
         : (t = `${t.toString().substr(0, 2)}:${t.toString().substr(2, 2)}`);
       return (
-        <div className="time" key={i}>
-          {t}
-        </div>
+        <label key={t}>
+          <input
+            type="button"
+            value={t}
+            key={i}
+            onChange={(e) => {
+              console.log(day + e.target.value);
+            }}
+          />
+        </label>
       );
     });
     timeTags.push(
@@ -62,13 +68,29 @@ export default function Detail(props) {
         <button
           className={styles.back}
           onClick={() => {
-            props.setIndex(null);
-            props.setChangeView(true);
+            Router.push({
+              pathname: "/checkout/form",
+              query: {
+                amount: props.doctor.price,
+              },
+            });
           }}
         >
           Back to Top
         </button>
       </div>
+      <button
+        className={styles.back}
+        onClick={() => {
+          props.setIndex(null);
+          props.setChangeView(true);
+        }}
+      >
+        Back to Top
+      </button>
+      <button className="test" onClick={() => {}}>
+        Test!
+      </button>
     </div>
   );
 }
