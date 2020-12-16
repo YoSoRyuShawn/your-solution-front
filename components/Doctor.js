@@ -16,7 +16,7 @@ export default function Doctor(props) {
       <div>
         <div className={styles.doctorname}>Dr. {props.doctor.first_name}</div>
         <div className={styles.doctorspecialty}>
-          Specialties: {props.doctor.specialty}
+          Specialty: {props.doctor.specialty}
         </div>
         <div className={styles.doctorprice}>
           {" "}
