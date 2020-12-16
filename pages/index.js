@@ -33,7 +33,7 @@ export default function Home({ data }) {
             <Filter doctors={doctors} allDoctors={data} setDoctors={setDocters}/>
             <DoctorsList
               doctors={doctors}
-              setDocters={setDocters}
+              // setDocters={setDocters}
               setChangeView={setChangeView}
               setIndex={setIndex}
             />

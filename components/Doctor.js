@@ -19,7 +19,7 @@ export default function Doctor(props) {
           className={styles.button}
           onClick={() => {
             //doctorsの配列から選ばれたdoctorの情報をindexを使って取り出す
-            props.setIndex(props.doctor.id - 1);
+            props.setIndex(props.index);
             props.setChangeView(false);
           }}
         >
