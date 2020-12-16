@@ -15,8 +15,13 @@ export default function Detail(props) {
             type="button"
             value={t}
             key={i}
-            onChange={(e) => {
-              console.log(day + e.target.value);
+            onClick={() => {
+              Router.push({
+                pathname: "/checkout/form",
+                query: {
+                  amount: props.doctor.price,
+                },
+              });
             }}
           />
         </label>
@@ -51,33 +56,7 @@ export default function Detail(props) {
             <span className={styles.amount}>Session Fee: </span>
             {props.doctor.price}{" "}
           </div>
-          <button
-            className={styles.button}
-            onClick={() => {
-              Router.push({
-                pathname: "/checkout/form",
-                query: {
-                  amount: props.doctor.price,
-                },
-              });
-            }}
-          >
-            book
-          </button>
         </div>
-        <button
-          className={styles.back}
-          onClick={() => {
-            Router.push({
-              pathname: "/checkout/form",
-              query: {
-                amount: props.doctor.price,
-              },
-            });
-          }}
-        >
-          Back to Top
-        </button>
       </div>
       <button
         className={styles.back}
@@ -87,9 +66,6 @@ export default function Detail(props) {
         }}
       >
         Back to Top
-      </button>
-      <button className="test" onClick={() => {}}>
-        Test!
       </button>
     </div>
   );
