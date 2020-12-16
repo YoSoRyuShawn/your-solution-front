@@ -4,5 +4,6 @@
 }
 .selectbox {
   display: block;
-  font-size: 10px;
+  font-size: 15px;
+  margin: 10px;
 }
