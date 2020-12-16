@@ -20,23 +20,9 @@ export default function Doctor(props) {
         </div>
         <div className={styles.doctorprice}>
           {" "}
-          Session Fee:{" "}
-          {props.doctor.price}
+          Session Fee: {props.doctor.price}
         </div>
       </div>
-<<<<<<< HEAD
-=======
-      <button
-        className={styles.button}
-        onClick={() => {
-          //doctorsの配列から選ばれたdoctorの情報をindexを使って取り出す
-          props.setIndex(props.index);
-          props.setChangeView(false);
-        }}
-      >
-        See more
-      </button>
->>>>>>> c3a955f8f45c427a83095cddd8b48cdd8fac4ed8
     </div>
   );
 }

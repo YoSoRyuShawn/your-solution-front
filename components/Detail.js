@@ -75,12 +75,7 @@ export default function Detail(props) {
       >
         Back to Top
       </button>
-      <button
-        className="test"
-        onChange={(e) => {
-          console.log(e.target.value);
-        }}
-      >
+      <button className="test" onClick={() => {}}>
         Test!
       </button>
     </div>
