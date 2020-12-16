@@ -7,8 +7,8 @@ export default function Detail(props) {
         <div className={styles.fullname}>
           Dr.{props.doctor.first_name} {props.doctor.last_name}
         </div>
-        <img className={styles.image} src={props.doctor.img} />
-        <div className={styles.speciality}>{props.doctor.speciality}</div>
+        <img className={styles.image} src={props.doctor.image} />
+        <div className={styles.specialty}>{props.doctor.specialty}</div>
         <div className={styles.desc}>{props.doctor.description} </div>
       </div>
       <div className={styles.pay}>
