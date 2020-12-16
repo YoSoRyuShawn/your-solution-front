@@ -11,7 +11,19 @@ export default function Detail(props) {
         : (t = `${t.toString().substr(0, 2)}:${t.toString().substr(2, 2)}`);
       return (
         <label key={t}>
-          <input type="button" value={t} key={i} onClick={() => {}} />
+          <input
+            type="button"
+            value={t}
+            key={i}
+            onClick={() => {
+              Router.push({
+                pathname: "/checkout/form",
+                query: {
+                  amount: props.doctor.price,
+                },
+              });
+            }}
+          />
         </label>
       );
     });
@@ -44,33 +56,7 @@ export default function Detail(props) {
             <span className={styles.amount}>Session Fee: </span>
             {props.doctor.price}{" "}
           </div>
-          <button
-            className={styles.button}
-            onClick={() => {
-              Router.push({
-                pathname: "/checkout/form",
-                query: {
-                  amount: props.doctor.price,
-                },
-              });
-            }}
-          >
-            book
-          </button>
         </div>
-        <button
-          className={styles.back}
-          onClick={() => {
-            Router.push({
-              pathname: "/checkout/form",
-              query: {
-                amount: props.doctor.price,
-              },
-            });
-          }}
-        >
-          Back to Top
-        </button>
       </div>
       <button
         className={styles.back}
