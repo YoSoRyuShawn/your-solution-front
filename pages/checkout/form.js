@@ -10,7 +10,7 @@ export default function Home() {
   const [stripe, setStripe] = useState(null);
   const onStripeLoad = () => {
     if(window.Stripe) {
-      setStripe(window.Stripe(pk_test_51HyWlgCAUqx4BaPL7KcmY0WevZG6TpmlW5uLGJ4FVmrkFZU0Bprspo9tqwQGf9K77CpJtQHNu8mfQgYPQdmvRQkR00OuElpR8r))
+      setStripe(window.Stripe("pk_test_51HyWlgCAUqx4BaPL7KcmY0WevZG6TpmlW5uLGJ4FVmrkFZU0Bprspo9tqwQGf9K77CpJtQHNu8mfQgYPQdmvRQkR00OuElpR8r"))
     }
   }
   return (
