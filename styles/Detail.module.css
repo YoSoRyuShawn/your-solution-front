@@ -49,15 +49,10 @@
   font-size: 20px;
 }
 .days {
-  width: 100%;
-  margin: 5px;
   display: flex;
-  /* padding: 5px;
-  margin: 5px; */
-  /* border: 10px;
-  flex: 1 1 auto; */
-  flex-direction: row;
-  justify-content: center;
+   flex-direction: row;
+   align-items: left;
+   justify-content: flex-start;
 }
 .daybtn {
   /* height: 25px; */
