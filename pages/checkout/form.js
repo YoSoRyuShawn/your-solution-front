@@ -1,9 +1,11 @@
 import Head from "next/head";
 import CheckoutForm from "../../components/CheckoutForm";
+import Title from "../../components/Title";
 import { Elements, StripeProvider} from "react-stripe-elements";
 import { useState, Fragment } from "react";
 import Script from 'react-load-script';
 import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 
 export default function Home() {
@@ -20,6 +22,7 @@ export default function Home() {
           <link rel="icon" href="/favicon.ico" />
           <script src="https://js.stripe.com/v3/"></script>
       </Head>
+      <Title />
       <StripeProvider stripe={stripe}>
         <div className="container">
           <Elements>

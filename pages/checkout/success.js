@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 import { invokeZoom } from "../../utils/data";
 import Link from "next/link";
+import Title from "../../components/Title";
 
 export async function getServerSideProps() {
   console.log("fetching");
@@ -18,6 +19,17 @@ export default function Home(props) {
   const [url, setUrl] = useState(props.url);
   return (
     <div>
+      <Head>
+        <title>Create Next App</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <Title />
+      <div className="container">
+      <style jsx >{`
+      .container {
+        margin-top: 310px;
+      }
+      `}</style>
       <h1>Thank you, {name}</h1>
       <div>
         Zoom Link: <a href={url}>here</a>
@@ -25,6 +37,7 @@ export default function Home(props) {
       <Link href="/">
         <a>TOP</a>
       </Link>
+      </div>
     </div>
   );
 }
