@@ -87,7 +87,7 @@ class CheckoutFormClass extends React.Component {
                                     <Input
                                         type="text"
                                         name="amount"
-                                        value={this.props.router.query.amount}
+                                        value={values.amount}
                                         onChange={handleChange}
                                         onBlur={handleBlur}
                                         invalid={Boolean(touched.amount && errors.amount)}
