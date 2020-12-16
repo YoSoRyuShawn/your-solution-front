@@ -1,4 +1,4 @@
-import Doctor from "../Doctor";
+import Doctor from "./Doctor";
 import styles from "../styles/DoctorsList.module.css";
 
 export default function DoctorsList(props) {
