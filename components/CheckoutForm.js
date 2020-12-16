@@ -5,10 +5,16 @@ import { Formik } from 'formik'
 import * as Yup from 'yup';
 import axios from "axios";
 import Router from 'next/router';
-import Title from "../components/Title";
+import styles from "../styles/CheckoutForm.module.css";
+import { useRouter } from "next/router";
 
-class CheckoutForm extends React.Component {
+const CheckoutForm = (props) => {
+  const router = useRouter();
+  return <CheckoutFormClass {...props} router={router} />
+}
 
+class CheckoutFormClass extends React.Component {
+  
     handlePayment = async (values) => {
 
         // alert(JSON.stringify(values));
@@ -63,12 +69,11 @@ class CheckoutForm extends React.Component {
     render() {
         console.log(this.props.stripe);
         return (
-            <>
-            <Title />
+            <div className={styles.container}>
             <div className="col-8">
                 <p>決済情報の入力</p>
                 <Formik
-                    initialValues={{ amount: 100, username: 'TARO YAMADA' }}
+                    initialValues={{ amount: this.props.router.query.amount, username: 'TARO YAMADA' }}
                     onSubmit={(values) => this.handlePayment(values)}
                     validationSchema={Yup.object().shape({
                         amount: Yup.number().min(1).max(1000),
@@ -137,7 +142,7 @@ class CheckoutForm extends React.Component {
                 </Formik>
 
             </div>
-            </>
+            </div>
         );
     }
 }
