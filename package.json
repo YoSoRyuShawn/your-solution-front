@@ -8,8 +8,15 @@
     "start": "next start"
   },
   "dependencies": {
+    "axios": "^0.21.0",
+    "bootstrap": "^4.5.3",
+    "formik": "^2.2.6",
     "next": "10.0.3",
     "react": "17.0.1",
-    "react-dom": "17.0.1"
+    "react-dom": "17.0.1",
+    "react-load-script": "^0.0.6",
+    "react-stripe-elements": "^6.1.2",
+    "reactstrap": "^8.7.1",
+    "yup": "^0.32.8"
   }
 }
