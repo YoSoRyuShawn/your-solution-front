@@ -1,7 +1,6 @@
 import styles from "../styles/Detail.module.css";
 import _ from "underscore";
-import Router from 'next/router';
-
+import Router from "next/router";
 export default function Detail(props) {
   let timeTags = [];
   for (const day in props.doctor.availability) {
@@ -11,9 +10,18 @@ export default function Detail(props) {
         ? (t = `${t.toString().substr(0, 1)}:${t.toString().substr(1, 2)}`)
         : (t = `${t.toString().substr(0, 2)}:${t.toString().substr(2, 2)}`);
       return (
-        <div className="time" key={i}>
+        <label key={t}>
+          <input
+            type="radio"
+            name="select"
+            value={t}
+            key={i}
+            onChange={(e) => {
+              console.log(day + e.target.value);
+            }}
+          />
           {t}
-        </div>
+        </label>
       );
     });
     timeTags.push(
@@ -48,10 +56,10 @@ export default function Detail(props) {
           className={styles.button}
           onClick={() => {
             Router.push({
-              pathname:"/checkout/form",
-              query:{
-                amount: props.doctor.price
-              }
+              pathname: "/checkout/form",
+              query: {
+                amount: props.doctor.price,
+              },
             });
           }}
         >
@@ -66,6 +74,14 @@ export default function Detail(props) {
         }}
       >
         Back to Top
+      </button>
+      <button
+        className="test"
+        onChange={(e) => {
+          console.log(e.target.value);
+        }}
+      >
+        Test!
       </button>
     </div>
   );

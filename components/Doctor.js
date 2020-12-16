@@ -2,7 +2,14 @@ import styles from "../styles/Doctor.module.css";
 
 export default function Doctor(props) {
   return (
-    <div className={styles.doctor}>
+    <div
+      className={styles.doctor}
+      onClick={() => {
+        //doctorsの配列から選ばれたdoctorの情報をindexを使って取り出す
+        props.setIndex(props.index);
+        props.setChangeView(false);
+      }}
+    >
       <div>
         <img className={styles.doctorimage} src={props.doctor.image} />
       </div>
@@ -15,16 +22,6 @@ export default function Doctor(props) {
           {props.doctor.price} Yen/session
         </div>
       </div>
-        <button
-          className={styles.button}
-          onClick={() => {
-            //doctorsの配列から選ばれたdoctorの情報をindexを使って取り出す
-            props.setIndex(props.index);
-            props.setChangeView(false);
-          }}
-        >
-          See more
-        </button>
     </div>
   );
 }
