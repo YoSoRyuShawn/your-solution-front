@@ -4,11 +4,12 @@ import styles from "../styles/DoctorsList.module.css";
 export default function DoctorsList(props) {
   const doctors = props.doctors;
   const list = [];
-  for (const doctor of doctors) {
+  for (let i = 0; i < doctors.length; i++) {
     list.push(
       <Doctor
-        doctor={doctor}
-        key={doctor.id}
+        doctor={doctors[i]}
+        key={doctors[i].id}
+        index={i}
         setChangeView={props.setChangeView}
         setIndex={props.setIndex}
       />
