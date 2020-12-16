@@ -11,14 +11,7 @@ export default function Detail(props) {
         : (t = `${t.toString().substr(0, 2)}:${t.toString().substr(2, 2)}`);
       return (
         <label key={t}>
-          <input
-            type="button"
-            value={t}
-            key={i}
-            onChange={(e) => {
-              console.log(day + e.target.value);
-            }}
-          />
+          <input type="button" value={t} key={i} onClick={() => {}} />
         </label>
       );
     });
@@ -87,9 +80,6 @@ export default function Detail(props) {
         }}
       >
         Back to Top
-      </button>
-      <button className="test" onClick={() => {}}>
-        Test!
       </button>
     </div>
   );
