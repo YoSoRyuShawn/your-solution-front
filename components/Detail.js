@@ -12,6 +12,7 @@ export default function Detail(props) {
       return (
         <label key={t}>
           <input
+            className={styles.daybtn}
             type="button"
             value={t}
             key={i}
