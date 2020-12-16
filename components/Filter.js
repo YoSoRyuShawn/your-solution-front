@@ -10,6 +10,10 @@ export default function FIlter(props) {
     }
     props.setDoctors(filterdDoctors);
   }
+  const dateFilter = (e) => {
+    const date = e.target.value;
+    console.log(date);
+  }
   return (
     <div className={styles.filter}>
       <select 
@@ -29,7 +33,12 @@ export default function FIlter(props) {
         <option value="Dermatologist">Dermatologist</option>
         <option value="Pharmacist">Pharmacist</option>
       </select>
-      <select name="date" size="1" className={styles.selectbox}>
+      <select 
+        name="date" 
+        size="1" 
+        className={styles.selectbox}
+        onChange={dateFilter}
+      >
         <option value="All" selected>All</option>
         <option value="Sundat">Sunday</option>
         <option value="Monday">Monday</option>
