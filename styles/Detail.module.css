@@ -1,5 +1,39 @@
 .detail {
-  border: 2px solid yellowgreen;
+  margin: 30px auto;
   width: 70vw;
-  margin-top: 310px;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px #ccc;
+  padding: 10px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: left;
+  justify-content: left;
+
+  line-height: 1.7;
+  position: relative;
+  top: 150px;
 }
+.image {
+  border-radius: 50%;
+}
+
+.avail {
+  display: flex;
+   flex-direction: row;
+   justify-content: flex-start;
+}
+
+.days {
+  width: 100%;
+  margin: 5px;
+  display: flex;
+  /* padding: 5px;
+  margin: 5px; */
+  /* border: 10px;
+  flex: 1 1 auto; */
+  flex-direction: row;
+  justify-content: space-between;
+}
+

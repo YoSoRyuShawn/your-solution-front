@@ -1,6 +1,6 @@
 import styles from "../styles/Detail.module.css";
 import _ from "underscore";
-import Router from 'next/router';
+import Router from "next/router";
 
 export default function Detail(props) {
   let timeTags = [];
@@ -26,47 +26,49 @@ export default function Detail(props) {
   return (
     <div className={styles.detail}>
       <div className={styles.info}>
-        <div className={styles.fullname}>
-          Dr.{props.doctor.first_name} {props.doctor.last_name}
-        </div>
         <img className={styles.image} src={props.doctor.image} />
+        <div className={styles.fullname}>
+          Dr. {props.doctor.first_name} {props.doctor.last_name}
+        </div>
         <div className={styles.specialty}>
-          Specialties:{props.doctor.specialty}
+          Specialty: {props.doctor.specialty}
         </div>
         <div className={styles.desc}>{props.doctor.description} </div>
-      </div>
-      <div className={styles.pay}>
-        <div className={styles.availability}>
-          <span className={styles.avail}>availabilities:</span>
-          {timeTags}
-        </div>
-        <div className={styles.price}>
-          {props.doctor.price}{" "}
-          <span className={styles.amount}>Yen/session</span>
+        <div className={styles.pay}>
+          <div className={styles.availability}>
+            <div id="avail">
+              <span className={styles.avail}>Availability:</span>
+            </div>
+            <div className={styles.days}>{timeTags}</div>
+          </div>
+          <div className={styles.price}>
+            <span className={styles.amount}>Session Fee: </span>
+            {props.doctor.price}{" "}
+          </div>
+          <button
+            className={styles.button}
+            onClick={() => {
+              Router.push({
+                pathname: "/checkout/form",
+                query: {
+                  amount: props.doctor.price,
+                },
+              });
+            }}
+          >
+            book
+          </button>
         </div>
         <button
-          className={styles.button}
+          className={styles.back}
           onClick={() => {
-            Router.push({
-              pathname:"/checkout/form",
-              query:{
-                amount: props.doctor.price
-              }
-            });
+            props.setIndex(null);
+            props.setChangeView(true);
           }}
         >
-          book
+          Back to Top
         </button>
       </div>
-      <button
-        className={styles.back}
-        onClick={() => {
-          props.setIndex(null);
-          props.setChangeView(true);
-        }}
-      >
-        Back to Top
-      </button>
     </div>
   );
 }
