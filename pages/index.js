@@ -30,7 +30,7 @@ export default function Home({ data }) {
 
         {changeView ? (
           <>
-            <Filter />
+            <Filter doctors={doctors} allDoctors={data} setDoctors={setDocters}/>
             <DoctorsList
               doctors={doctors}
               setDocters={setDocters}
