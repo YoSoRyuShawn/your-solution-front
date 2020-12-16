@@ -1,5 +1,6 @@
 import styles from "../styles/Detail.module.css";
 import _ from "underscore";
+import Router from 'next/router';
 
 export default function Detail(props) {
   let timeTags = [];
@@ -46,7 +47,12 @@ export default function Detail(props) {
         <button
           className={styles.button}
           onClick={() => {
-            //go payment
+            Router.push({
+              pathname:"/checkout/form",
+              query:{
+                amount: props.doctor.price
+              }
+            });
           }}
         >
           book
