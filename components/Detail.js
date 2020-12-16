@@ -49,7 +49,7 @@ export default function Detail(props) {
         <div className={styles.pay}>
           <div className={styles.availability}>
             <div id="avail">
-              <span className={styles.avail}>Availability:</span>
+              <span className={styles.avail}>Schedule a Zoom Meeting:</span>
             </div>
             <div className={styles.days}>{timeTags}</div>
           </div>
