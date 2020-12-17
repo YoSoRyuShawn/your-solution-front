@@ -51,13 +51,12 @@ class CheckoutFormClass extends React.Component {
             }
         });
         if (confirmRes.paymentIntent && confirmRes.paymentIntent.status === "succeeded") {
-            alert("決済完了");
+            alert("Completed Payment!");
             const dateFormat = moment().add(7, "days").day(this.props.router.query.date).format("YYYY-MM-DD");
             const zoomBody = {
                 time: `${dateFormat}T${this.props.router.query.time}:00`
             };
             const url = await invokeZoom(zoomBody);
-            alert(url);
             const body = {
                 userName: values.username,
                 doctorName: this.props.router.query.doctorName,
@@ -67,7 +66,6 @@ class CheckoutFormClass extends React.Component {
                 email: values.email
             };
             const res = await sendEmail(body);
-            alert(res);
             if(!res) {
                 alert("Can not send an email");
             }
@@ -102,7 +100,7 @@ class CheckoutFormClass extends React.Component {
                 {this.props.router.query.time}
             </div>
             <div className="col-8">
-                <p>決済情報の入力</p>
+                <p>Payment Information</p>
                 <Formik
                     initialValues={{ amount: this.props.router.query.amount, username: 'TARO YAMADA', email:""}}
                     onSubmit={(values) => this.handlePayment(values)}
@@ -114,8 +112,8 @@ class CheckoutFormClass extends React.Component {
                         ({ handleChange, handleSubmit, handleBlur, values, errors, touched }) => (
                             <Form onSubmit={handleSubmit}>
                                 <FormGroup>
-                                    <Label>金額</Label>
-                                    <Input
+                                    <Label>Amount</Label>
+                                    <Input disabled
                                         type="text"
                                         name="amount"
                                         value={values.amount}
@@ -128,7 +126,7 @@ class CheckoutFormClass extends React.Component {
                                     </FormFeedback>
                                 </FormGroup>
                                 <FormGroup>
-                                    <Label>利用者名</Label>
+                                    <Label>Your Name</Label>
                                     <Input
                                         type="text"
                                         name="username"
@@ -159,16 +157,16 @@ class CheckoutFormClass extends React.Component {
                                     className="bg-light p-3"
                                     hidePostalCode={true}
                                 /> */}
-                                <legend className="col-form-label">カード番号</legend>
+                                <legend className="col-form-label">Card Number</legend>
                                 <CardNumberElement
                                     ref={this.cardNumberRef}
                                     className="p-2 bg-light"
                                 />
-                                <legend className="col-form-label">有効期限</legend>
+                                <legend className="col-form-label">Expiration Date</legend>
                                 <CardExpiryElement
                                     className="p-2 bg-light"
                                 />
-                                <legend className="col-form-label">セキュリティーコード</legend>
+                                <legend className="col-form-label">Security Code</legend>
                                 <CardCVCElement
                                     className="p-2 bg-light"
                                 />
@@ -179,7 +177,7 @@ class CheckoutFormClass extends React.Component {
                                     className="my-3"
                                     color="primary"
                                 >
-                                    購入
+                                    Book Appointment
                                 </Button>
                             </Form>
                         )
