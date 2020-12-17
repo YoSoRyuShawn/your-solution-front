@@ -8,6 +8,7 @@ import Router from 'next/router';
 import styles from "../styles/CheckoutForm.module.css";
 import { useRouter } from "next/router";
 import { invokeZoom, sendEmail } from "../utils/data";
+import moment from "moment";
 
 const CheckoutForm = (props) => {
   const router = useRouter();
@@ -15,7 +16,9 @@ const CheckoutForm = (props) => {
 }
 
 class CheckoutFormClass extends React.Component {
-  
+    // dateView = () => {
+    //     return moment().add(7, "days").day(this.props.router.query.date).format("MM Do");
+    // }
     handlePayment = async (values) => {
 
         // alert(JSON.stringify(values));
@@ -49,18 +52,25 @@ class CheckoutFormClass extends React.Component {
         });
         if (confirmRes.paymentIntent && confirmRes.paymentIntent.status === "succeeded") {
             alert("決済完了");
-            const url = await invokeZoom();
-            // const body = {
-            //     firsName: values.username.split(" ")[0],
-            //     lastName: values.username.split(" ")[1],
-            //     time: "0:00 Monday",
-            //     url: url,
-            //     email: values.email
-            // };
-            // const res = await sendEmail(body);
-            // if(!res) {
-            //     alert("Can not send an email");
-            // }
+            const dateFormat = moment().add(7, "days").day(this.props.router.query.date).format("YYYY-MM-DD");
+            const zoomBody = {
+                time: `${dateFormat}T${this.props.router.query.time}:00`
+            };
+            const url = await invokeZoom(zoomBody);
+            alert(url);
+            const body = {
+                userName: values.username,
+                doctorName: this.props.router.query.doctorName,
+                time: this.props.router.query.time,
+                date: dateFormat,
+                url: url,
+                email: values.email
+            };
+            const res = await sendEmail(body);
+            alert(res);
+            if(!res) {
+                alert("Can not send an email");
+            }
             Router.push({
               pathname:"/checkout/success",
               query:{
@@ -81,9 +91,16 @@ class CheckoutFormClass extends React.Component {
     }
 
     render() {
+        
         console.log(this.props.stripe);
         return (
             <div className={styles.container}>
+            <div>
+                <img src={this.props.router.query.doctorPic}></img>
+                Dr. {this.props.router.query.doctorName}
+                {/* {this.dateView()} */}
+                {this.props.router.query.time}
+            </div>
             <div className="col-8">
                 <p>決済情報の入力</p>
                 <Formik
