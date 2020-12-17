@@ -93,14 +93,23 @@ class CheckoutFormClass extends React.Component {
         console.log(this.props.stripe);
         return (
             <div className={styles.container}>
+                <div>
+                <img className={styles.drpic} src={this.props.router.query.doctorPic}></img>
+
+                </div>
             <div>
-                <img src={this.props.router.query.doctorPic}></img>
-                Dr. {this.props.router.query.doctorName}
-                {/* {this.dateView()} */}
-                {this.props.router.query.time}
             </div>
             <div className="col-8">
+                <div className={styles.meet}>
+                Meet Dr. {this.props.router.query.doctorName} at {" "}
+                {/* {this.dateView()} */}
+                {this.props.router.query.time}
+
+                </div>
+                <div className={styles.payment}>
+
                 <p>Payment Information</p>
+                </div>
                 <Formik
                     initialValues={{ amount: this.props.router.query.amount, username: 'TARO YAMADA', email:""}}
                     onSubmit={(values) => this.handlePayment(values)}
@@ -174,7 +183,7 @@ class CheckoutFormClass extends React.Component {
                                 <Button
                                     type="submit"
                                     onClick={this.submit}
-                                    className="my-3"
+                                    className="book-btn"
                                     color="primary"
                                 >
                                     Book Appointment
