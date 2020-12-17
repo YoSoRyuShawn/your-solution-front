@@ -1,28 +1,51 @@
+import { useState, useEffect } from "react";
 import styles from "../styles/Filter.module.css";
-export default function FIlter(props) {
-  const specialtyFilter = (e) => {
-    const specialty = e.target.value;
+export default function Filter(props) {
+  const [selectedSpecialty, setSelectedSpecialty] = useState("All");
+  const [selectedDay, setSelectedDay] = useState("All");
+  // const specialtyFilter = (e) => {
+  //   const specialty = e.target.value;
+  //   let filterdDoctors = props.allDoctors;
+  //   if (specialty !== "All") {
+  //     filterdDoctors = filterdDoctors.filter((doctor) => {
+  //       return doctor.specialty === specialty;
+  //     });
+  //   }
+  //   props.setDoctors(filterdDoctors);
+  // };
+
+  useEffect(() => {
     let filterdDoctors = props.allDoctors;
-    if(specialty !== "All") {
-      filterdDoctors = filterdDoctors.filter((doctor) => {
-        return doctor.specialty === specialty;
-      })
-    }
+    filterdDoctors = filterdDoctors.filter((doctor) => {
+      if (selectedSpecialty !== "All" && selectedDay !== "All")
+        return (
+          doctor.specialty === selectedSpecialty &&
+          doctor.availability[selectedDay].length > 0
+        );
+      if (selectedSpecialty !== "All")
+        return doctor.specialty === selectedSpecialty;
+      if (selectedDay !== "All") {
+        console.log(selectedDay);
+        return doctor.availability[selectedDay].length > 0;
+      }
+      return true;
+    });
     props.setDoctors(filterdDoctors);
-  }
-  const dateFilter = (e) => {
-    const date = e.target.value;
-    console.log(date);
-  }
+  }, [selectedSpecialty, selectedDay]);
   return (
     <div className={styles.filter}>
-      <select 
-        name="specialty" 
-        size="1" 
+      <select
+        name="specialty"
+        size="1"
         className={styles.selectbox}
-        onChange={specialtyFilter}
+        // onChange={specialtyFilter}
+        onChange={(e) => {
+          setSelectedSpecialty(e.target.value);
+        }}
       >
-        <option value="All" selected>All Specialties</option>
+        <option value="All" selected>
+          All Specialties
+        </option>
         <option value="General Physician">General Physician</option>
         <option value="Surgeon">Surgeon</option>
         <option value="Physical Therapist">Physical Therapist</option>
@@ -33,14 +56,18 @@ export default function FIlter(props) {
         <option value="Dermatologist">Dermatologist</option>
         <option value="Pharmacist">Pharmacist</option>
       </select>
-      <select 
-        name="date" 
-        size="1" 
+      <select
+        name="date"
+        size="1"
         className={styles.selectbox}
-        onChange={dateFilter}
+        onChange={(e) => {
+          setSelectedDay(e.target.value);
+        }}
       >
-        <option value="All" selected>All Days</option>
-        <option value="Sundat">Sunday</option>
+        <option value="All" selected>
+          All Days
+        </option>
+        <option value="Sunday">Sunday</option>
         <option value="Monday">Monday</option>
         <option value="Tuesday">Tuesday</option>
         <option value="Wednesday">Wednesday</option>
