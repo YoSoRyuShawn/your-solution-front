@@ -16,11 +16,16 @@ export default function Detail(props) {
             type="button"
             value={t}
             key={i}
-            onClick={() => {
+            onClick={(e) => {
+              const doctorName = props.doctor.first_name + " " + props.doctor.last_name;
               Router.push({
                 pathname: "/checkout/form",
                 query: {
                   amount: props.doctor.price,
+                  time: e.target.value,
+                  date: e.target.parentNode.parentNode.parentNode.className,
+                  doctorName: doctorName,
+                  doctorPic: props.doctor.image
                 },
               });
             }}

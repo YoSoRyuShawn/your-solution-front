@@ -7,8 +7,8 @@ export const getAlldoctors = async () => {
   return data;
 };
 
-export const invokeZoom = async () => {
-  const res = await axios.post("https://your-solution-stg.herokuapp.com/zoomMeeting");
+export const invokeZoom = async (body) => {
+  const res = await axios.post("https://your-solution-stg.herokuapp.com/zoomMeeting",body);
   if(res.status === 200) {
     return res.data.body.join_url;
   }
