@@ -2,20 +2,27 @@ import styles from "../styles/Doctor.module.css";
 
 export default function Doctor(props) {
   return (
-    <div className={styles.doctor}>
-      <img src={props.doctor.img} />
-      <div className={styles.doctorname}>Dr.{props.doctor.first_name}</div>
-      <div className={styles.doctorspeciality}>
-        Specialities:{props.doctor.speciality}
+    <div
+      className={styles.doctor}
+      onClick={() => {
+        //doctorsの配列から選ばれたdoctorの情報をindexを使って取り出す
+        props.setIndex(props.index);
+        props.setChangeView(false);
+      }}
+    >
+      <div>
+        <img className={styles.doctorimage} src={props.doctor.image} />
       </div>
-      <button
-        className={styles.button}
-        onClick={() => {
-          //change state to single doctor
-        }}
-      >
-        See more
-      </button>
+      <div>
+        <div className={styles.doctorname}>Dr. {props.doctor.first_name}</div>
+        <div className={styles.doctorspecialty}>
+          Specialty: {props.doctor.specialty}
+        </div>
+        <div className={styles.doctorprice}>
+          {" "}
+          Session Fee: {props.doctor.price}
+        </div>
+      </div>
     </div>
   );
 }
