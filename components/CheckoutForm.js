@@ -16,7 +16,9 @@ const CheckoutForm = (props) => {
 }
 
 class CheckoutFormClass extends React.Component {
-  
+    // dateView = () => {
+    //     return moment().add(7, "days").day(this.props.router.query.date).format("MM Do");
+    // }
     handlePayment = async (values) => {
 
         // alert(JSON.stringify(values));
@@ -89,17 +91,14 @@ class CheckoutFormClass extends React.Component {
     }
 
     render() {
-        const dateView = moment().add(7, "days").day(this.props.router.query.date).format("MM Do");
-        const dateFormat = moment().add(7, "days").day(this.props.router.query.date).format("YYYY-MM-DD");
-        const datePass = `${dateFormat}T${this.props.router.query.time}`
-        console.log(datePass);
+        
         console.log(this.props.stripe);
         return (
             <div className={styles.container}>
             <div>
                 <img src={this.props.router.query.doctorPic}></img>
                 Dr. {this.props.router.query.doctorName}
-                {dateView}
+                {/* {this.dateView()} */}
                 {this.props.router.query.time}
             </div>
             <div className="col-8">
