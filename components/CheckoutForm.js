@@ -99,6 +99,10 @@ class CheckoutFormClass extends React.Component {
         query: {
           name: values.username,
           url: url,
+          doctorPic: this.props.router.query.doctorPic,
+          doctorName: this.props.router.query.doctorName,
+          time: this.props.router.query.time,
+          date: dateFormat
         },
       });
       return;
