@@ -22,7 +22,7 @@ export default function FIlter(props) {
         className={styles.selectbox}
         onChange={specialtyFilter}
       >
-        <option value="All" selected>All</option>
+        <option value="All" selected>All Specialties</option>
         <option value="General Physician">General Physician</option>
         <option value="Surgeon">Surgeon</option>
         <option value="Physical Therapist">Physical Therapist</option>
@@ -39,7 +39,7 @@ export default function FIlter(props) {
         className={styles.selectbox}
         onChange={dateFilter}
       >
-        <option value="All" selected>All</option>
+        <option value="All" selected>All Days</option>
         <option value="Sundat">Sunday</option>
         <option value="Monday">Monday</option>
         <option value="Tuesday">Tuesday</option>
