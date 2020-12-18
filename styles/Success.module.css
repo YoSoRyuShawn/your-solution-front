@@ -7,6 +7,12 @@
   text-align: center; 
 }
 
+.drname {
+  font-family: "Karla", sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+}
+
 .container {
   margin-top: 310px;
   font-family: "Karla", sans-serif;
@@ -40,9 +46,9 @@
 
 .backbtn{
   height: 25px;
-  position: absolute;
+  /* position: absolute;
   bottom: 10px;
-  right: 10px;
+  right: 10px; */
   background-color: #c7ffed;
   color: black;
   font-size: 15px;

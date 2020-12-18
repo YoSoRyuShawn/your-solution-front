@@ -26,19 +26,22 @@ export default function Home() {
       </Head>
       <Title />
       <div className={styles.container}>
-        <div className={styles.massage}>
+        <div className={styles.message}>
           <p className={styles.thank}>Thank you, {name} !</p>
           <p className={styles.mail}>We sent you an email with detailed information.</p>
         </div>
         <div className={styles.doctor}>
           <img src={doctorPic} className={styles.img}></img>
           <div className={styles.detail}>
+            <div className={styles.drname}>
             <p>{doctorName}</p>
-            <p>Zoom online meeting at {time}, {dateFormat}</p>
-            <p>Zoom Link: <a href={url}>here</a></p>
+
+            </div>
+            <p>Zoom online meeting at {time}, {dateFormat}.</p>
+            <p>Zoom link: <a href={url}>here</a>.</p>
+        <button className={styles.backbtn}>Back to TOP</button>
           </div>
         </div>
-        <button className={styles.backbtn}>Back to TOP</button>
         {/* <Link href="/">
           <a>TOP</a>
         </Link> */}
