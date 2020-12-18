@@ -60,7 +60,7 @@ export default function Detail(props) {
           </div>
           <div className={styles.price}>
             <span className={styles.amount}>Session Fee: </span>
-            {props.doctor.price}{" "}
+            {props.doctor.price}{" yen"}
           </div>
         </div>
       </div>
