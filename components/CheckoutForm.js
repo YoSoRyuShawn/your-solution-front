@@ -79,6 +79,8 @@ class CheckoutFormClass extends React.Component {
         .format("YYYY-MM-DD");
       const zoomBody = {
         time: `${dateFormat}T${this.props.router.query.time}:00`,
+        userName: values.username,
+        doctorName: this.props.router.query.doctorName,
       };
       const url = await invokeZoom(zoomBody);
       const body = {
