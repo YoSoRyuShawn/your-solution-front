@@ -102,7 +102,7 @@ class CheckoutFormClass extends React.Component {
           doctorPic: this.props.router.query.doctorPic,
           doctorName: this.props.router.query.doctorName,
           time: this.props.router.query.time,
-          date: dateFormat
+          date: dateFormat,
         },
       });
       return;
@@ -121,14 +121,19 @@ class CheckoutFormClass extends React.Component {
     console.log(this.props.stripe);
     return (
       <div className={styles.container}>
-        <div>
-          <img src={this.props.router.query.doctorPic}></img>
-          Dr. {this.props.router.query.doctorName}
+          <div className={styles.picholder}>
+            <img className={styles.docpic} src={this.props.router.query.doctorPic}></img>
+        <div className={styles.name}>
+          Meet with Dr. {this.props.router.query.doctorName} at{" "}
           {/* {this.dateView()} */}
           {this.props.router.query.time}
         </div>
-        <div className="col-8">
+          </div>
+        <div className={styles.details}>
+            <div className={styles.payment}>
           <p>Payment Information</p>
+
+            </div>
           <Formik
             initialValues={{
               amount: this.props.router.query.amount,

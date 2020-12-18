@@ -1,6 +1,20 @@
 .container {
-  margin-top: 310px;
+
+  margin: 30px auto;
+  width: 70vw;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px #ccc;
   padding: 10px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: left;
+  justify-content: space-evenly;
+
+  line-height: 1.7;
+  position: relative;
+  top: 370px;
 }
 .drpic {
   border-radius: 50%;
@@ -36,4 +50,22 @@
   background-color: #0a2e36 !important;
   color: white;
   cursor: pointer;
+}
+
+.name {
+  font-family: "Karla", sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+}
+
+.docpic {
+  border-radius: 50%;
+  width: 200px;
+}
+.picholder {
+  width: 30%;
+
+}
+.details {
+  width: 50%;
 }
