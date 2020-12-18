@@ -157,7 +157,7 @@ class CheckoutFormClass extends React.Component {
             }) => (
               <Form onSubmit={handleSubmit}>
                 <FormGroup>
-                  <Label>Amount</Label>
+                  <Label>Amount (in yen)</Label>
                   <Input
                     disabled
                     type="text"
