@@ -1,7 +1,6 @@
 .title {
   background-color: #0a2e36;
   width: 100%;
-  height: auto;
   text-align: center;
   margin: 0px;
   position: absolute;
@@ -9,4 +8,9 @@
   left: 0px;
   color: white;
   cursor: pointer;
+}
+
+.logo {
+  max-width: 100%;
+  height: auto;
 }
