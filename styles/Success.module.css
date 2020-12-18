@@ -26,10 +26,16 @@
 .img {
   border-radius: 50%;
   padding: 0 20px;
+  width: auto;
+  height: 100px;
 }
 
 .detail {
   padding-top: 10px;
+  font-family: "Karla", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  margin-top: 10px;
 }
 
 .backbtn{
