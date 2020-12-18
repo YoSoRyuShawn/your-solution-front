@@ -52,15 +52,15 @@ export default function Detail(props) {
         </div>
         <div className={styles.desc}>{props.doctor.description} </div>
         <div className={styles.pay}>
-          <div className={styles.availability}>
-            <div id="avail">
-              <span className={styles.avail}>Schedule a Zoom Meeting:</span>
+            <div>
+              <span className={styles.schedule}>Schedule a Zoom Meeting:</span>
             </div>
+          <div className={styles.availability}>
             <div className={styles.days}>{timeTags}</div>
           </div>
           <div className={styles.price}>
             <span className={styles.amount}>Session Fee: </span>
-            {props.doctor.price}{" "}
+            {props.doctor.price}{" yen"}
           </div>
         </div>
       </div>

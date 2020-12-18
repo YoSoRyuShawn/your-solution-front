@@ -1,9 +1,9 @@
 import Head from "next/head";
-import { useState } from "react";
 import { useRouter } from "next/router";
-import { invokeZoom } from "../../utils/data";
 import Link from "next/link";
 import Title from "../../components/Title";
+import styles from "../../styles/Success.module.css";
+import moment from "moment";
 
 // export async function getServerSideProps() {
 //   console.log("fetching");
@@ -15,8 +15,9 @@ import Title from "../../components/Title";
 
 export default function Home() {
   const router = useRouter();
-  const { name, url } = router.query;
+  const { name, url, doctorPic, date, time, doctorName } = router.query;
   // const [url, setUrl] = useState(props.url);
+  const dateFormat = moment(date).format("MMM Do YYYY");
   return (
     <div>
       <Head>
@@ -24,19 +25,26 @@ export default function Home() {
         <link rel="icon" href="/favicon-heart.ico" />
       </Head>
       <Title />
-      <div className="container">
-      <style jsx >{`
-      .container {
-        margin-top: 310px;
-      }
-      `}</style>
-      <h1>Thank you, {name}</h1>
-      <div>
-        Zoom Link: <a href={url}>here</a>
-      </div>
-      <Link href="/">
-        <a>TOP</a>
-      </Link>
+      <div className={styles.container}>
+        <div className={styles.message}>
+          <p className={styles.thank}>Thank you, {name} !</p>
+          <p className={styles.mail}>We sent you an email with detailed information.</p>
+        </div>
+        <div className={styles.doctor}>
+          <img src={doctorPic} className={styles.img}></img>
+          <div className={styles.detail}>
+            <div className={styles.drname}>
+            <p>{doctorName}</p>
+
+            </div>
+            <p>Zoom online meeting at {time}, {dateFormat}.</p>
+            <p>Zoom link: <a href={url}>here</a>.</p>
+        <button className={styles.backbtn}>Back to TOP</button>
+          </div>
+        </div>
+        {/* <Link href="/">
+          <a>TOP</a>
+        </Link> */}
       </div>
     </div>
   );

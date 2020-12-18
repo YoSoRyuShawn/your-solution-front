@@ -20,7 +20,7 @@ export default function Doctor(props) {
         </div>
         <div className={styles.doctorprice}>
           {" "}
-          Session Fee: {props.doctor.price}
+          Session Fee: {props.doctor.price} yen
         </div>
       </div>
     </div>

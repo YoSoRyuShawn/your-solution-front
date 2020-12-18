@@ -1,0 +1,63 @@
+.doctor {
+  display: flex;
+  justify-content: center;
+}
+
+.message {
+  text-align: center; 
+}
+
+.drname {
+  font-family: "Karla", sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+}
+
+.container {
+  margin-top: 310px;
+  font-family: "Karla", sans-serif;
+}
+
+.thank {
+  text-align: center;
+  font-size: 2rem;
+}
+
+.mail {
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: 300;
+}
+
+.img {
+  border-radius: 50%;
+  padding: 0 20px;
+  width: auto;
+  height: 100px;
+}
+
+.detail {
+  padding-top: 10px;
+  font-family: "Karla", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+.backbtn{
+  height: 25px;
+  /* position: absolute;
+  bottom: 10px;
+  right: 10px; */
+  background-color: #c7ffed;
+  color: black;
+  font-size: 15px;
+  border: none;
+  border-radius: 8px;
+}
+
+.backbtn:hover {
+  background-color: #0a2e36;
+  color: white;
+  cursor: pointer;
+}

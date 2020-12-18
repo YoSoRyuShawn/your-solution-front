@@ -13,8 +13,8 @@ export default function Title(props) {
   }
   return(
     <div className={styles.title}>
-      <img 
-        src="/logo.png"
+      <img className={styles.logo}
+        src="/logo.jpg"
         onClick={titleClick}
       ></img>
     </div>
