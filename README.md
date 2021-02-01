@@ -33,7 +33,7 @@ https://expressjs.com
 3.  Knex  
 http://knexjs.org
 
-4. Heroku
+4. Heroku  
 https://www.heroku.com
 
 5. React  
