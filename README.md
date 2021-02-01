@@ -39,5 +39,5 @@ https://www.heroku.com
 5. React  
 https://reactjs.org
 
-6. Next.js
+6. Next.js  
 https://nextjs.org
